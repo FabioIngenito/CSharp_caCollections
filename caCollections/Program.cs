@@ -27,11 +27,12 @@ while (opcao != 'X' && opcao != 'x')
     Console.WriteLine("=== 6 - Listas Ligadas      ===");
     Console.WriteLine("=== 7 - Pilha (Stack)       ===");
     Console.WriteLine("=== 8 - Fila (Queue)        ===");
-    Console.WriteLine("=== 9 - Sorted List         ===");
-    Console.WriteLine("=== A - Sorted Dictionary   ===");
-    Console.WriteLine("=== B - Sorted Set          ===");
+    Console.WriteLine("=== 9 - Qual coleção usar?  ===");
+    Console.WriteLine("=== A - Sorted List         ===");
+    Console.WriteLine("=== C - Sorted Set          ===");
     Console.WriteLine("=== X - Sair do Sistema     ===");
     Console.WriteLine("===============================");
+    Console.WriteLine("=== B - Sorted Dictionary   ===");
     Console.WriteLine("\n");
     Console.Write("Digite a opção desejada: ");
 
@@ -67,6 +68,9 @@ while (opcao != 'X' && opcao != 'x')
             case '8':
                 Fila.Inicio();
                 break;
+            case '9':
+                QualColecaoUsar.Inicio();
+                break;
             case 'X':
             case 'x':
                 break;
@@ -77,6 +81,7 @@ while (opcao != 'X' && opcao != 'x')
     }
     catch (Exception ex)
     {
+        Console.WriteLine("ABEND - abnormal end.");
         Console.WriteLine($"ERRO: {ex.Message}");
     }
 }

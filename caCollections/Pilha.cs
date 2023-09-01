@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace caCollections;
+﻿namespace caCollections;
 
 /// <summary>
 /// Stack - LIFO - Last In First Out
@@ -32,9 +30,6 @@ public class Pilha
                 {
                     case '1':
                         Introducao();
-                        break;
-                    case '2':
-                        //AdicionarPesquisar(csharpcolecoes);
                         break;
                     case 'X':
                     case 'x':
@@ -80,26 +75,6 @@ public class Pilha
 
 
     #region SUPORTE
-    /// <summary>
-    /// Sobrecarga para IList Aluno
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(IList<Aluno> aulas)
-    {
-        foreach (var aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Sobrecarga para IDictionary int, Aluno
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(IDictionary<int, Aluno> aulas)
-    {
-        foreach (var aula in aulas)
-            Console.WriteLine(aula);
-    }
-
     /// <summary>
     /// Somente para finalizar.
     /// </summary>

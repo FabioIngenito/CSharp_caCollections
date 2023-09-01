@@ -5,13 +5,11 @@
 /// </summary>
 internal class Fila
 {
-    static Queue<string> pedagio = new();
+    static readonly Queue<string> pedagio = new();
 
     public static void Inicio()
     {
         char? opcao = '0';
-
-
 
         while (opcao != 'X' && opcao != 'x')
         {

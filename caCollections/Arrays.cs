@@ -204,7 +204,7 @@ public class Arrays
         Array.Resize(ref aula, 3);
         Imprimir1(aula);
         Console.WriteLine("---------- Atribuindo uma string no lugar do valor NULL");
-        aula[aula.Length - 1] = "Conclusão";
+        aula[^1] = "Conclusão";
         Imprimir1(aula);
         Finaliza();
     }
