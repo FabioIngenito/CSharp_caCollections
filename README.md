@@ -5,7 +5,7 @@
 | :sparkles: Nome       | **CSharp_caCollections**                |
 | :label: Tecnologias   | C# Collections                          |
 
-![image](https://github.com/FabioIngenito/CSharp_WfaSerializacaoNoSQL/assets/24603753/2666b7a7-3ba5-4dfa-b75c-3a3cecbd4107#vitrinedev)
+![Collections](https://github.com/FabioIngenito/CSharp_caCollections/assets/24603753/27ca9cdd-8dc6-43ac-a76f-05f260ba053b#vitrinedev)
 
 <h2 align="left">Detalhes do experimento</h2>
 
