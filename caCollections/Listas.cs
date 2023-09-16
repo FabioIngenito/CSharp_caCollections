@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace caCollections;
+﻿namespace caCollections;
 
 /// <summary>
 /// Lista, a coleção flexível.
@@ -25,7 +23,10 @@ public class Listas
 
         // Outra forma de declarar um array:
         // Um array é uma coleção de tamanho FIXO.
+        // Suprimi propositalmente para mostrar o formato antigo:
+#pragma warning disable IDE0028 // Simplificar a inicialização de coleção
         List<string> aulas2 = new();
+#pragma warning restore IDE0028 // Simplificar a inicialização de coleção
 
         //É recomendada a primeira forma.
         aulas2.Add(aulaIntro);
@@ -131,14 +132,14 @@ public class Listas
         };
 
         Console.WriteLine("---------- Populando e imprimindo Aula 1:");
-        Imprimir1(aula1);
+        Suporte.Imprimir(aula1);
         Console.WriteLine();
         Console.WriteLine("---------- Populando e imprimindo Aula 2:");
-        Imprimir2(aula2);
+        Suporte.Imprimir2(aula2);
         Console.WriteLine();
         Console.WriteLine("---------- Populando e imprimindo Aula 3:");
-        Imprimir3(aulas3);
-        Finaliza();
+        Suporte.Imprimir(aulas3);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -153,9 +154,12 @@ public class Listas
         Console.WriteLine($"Primeiro elemento: Aula1.First(): {aula1.First()} - Aula2.First(): {aula2.First()}");
         Console.WriteLine();
         Console.WriteLine("---------- Último elemento das duas coleções Listas criadas:");
+        // Suprimi propositalmente esta mensagem para mostrar o formato:
+#pragma warning disable IDE0056 // Usar operador de índice
         Console.WriteLine($"Último elemento: Aula1[{aula1.Count - 1}]: {aula1[^1]} - Aula2[{aula2.Count - 1}]: {aula2[aula2.Count - 1]}");
+#pragma warning restore IDE0056 // Usar operador de índice
         Console.WriteLine($"Último elemento: Aula1.Last(): {aula1.Last()} - Aula2.Last(): {aula2.Last()}");
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -173,7 +177,7 @@ public class Listas
         //aula1.First() = aulaIntro;
 
         Console.WriteLine($"Primeiro elemento: Aula1.First(): {aula1.First()}");
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -190,7 +194,7 @@ public class Listas
         //ERRO:
         //Console.WriteLine($"A aula 'Conclusão' está no índice: {aula.First(aula => aula.Contains("Conclusão"))}");
         Console.WriteLine($"A aula 'Conclusão' está no índice: {aula.FirstOrDefault(aula => aula.Contains("Conclusão"))}");
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -200,12 +204,12 @@ public class Listas
     private static void InverterOrdem(List<string> aula)
     {
         Console.WriteLine("---------- Ordem original:");
-        Imprimir3(aula);
+        Suporte.Imprimir(aula);
         Console.WriteLine();
         Console.WriteLine("---------- Inverter a ordem:");
         aula.Reverse();
-        Imprimir2(aula);
-        Finaliza();
+        Suporte.Imprimir2(aula);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -215,16 +219,16 @@ public class Listas
     private static void RedimensionandoArray(List<string> aula)
     {
         Console.WriteLine("---------- Array Original");
-        Imprimir2(aula);
+        Suporte.Imprimir2(aula);
         Console.WriteLine();
         Console.WriteLine("---------- Removendo o último elemento");
         aula.RemoveAt(aula.Count - 1);
-        Imprimir1(aula);
+        Suporte.Imprimir(aula);
         Console.WriteLine();
         Console.WriteLine("---------- Adicionando outra aula");
         aula.Add("Conclusão");
-        Imprimir1(aula);
-        Finaliza();
+        Suporte.Imprimir(aula);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -235,8 +239,8 @@ public class Listas
     {
         Console.WriteLine("---------- Ordenando ou 'Sort' uma coleção List. Não é idempotente como o Reverse().");
         aula.Sort();
-        Imprimir2(aula);
-        Finaliza();
+        Suporte.Imprimir2(aula);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -246,10 +250,10 @@ public class Listas
     private static void CopiandoLista(List<string> aula)
     {
         Console.WriteLine("---------- Copiando uma coleção List");
-        List<string> copia = aula.GetRange(aula.Count -2, 2);
-        Imprimir1(copia);
+        List<string> copia = aula.GetRange(aula.Count - 2, 2);
+        Suporte.Imprimir(copia);
         Console.WriteLine();
-        Finaliza(); 
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -260,8 +264,8 @@ public class Listas
     {
         Console.WriteLine("---------- Clonando (emulando) uma coleção List");
         List<string>? clone = new(aula);
-        Imprimir2(clone);
-        Finaliza();
+        Suporte.Imprimir2(clone);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -270,10 +274,22 @@ public class Listas
     /// <param name="aula">List aula</param>
     private static void LimpandoLista(List<string> aula)
     {
-        Console.WriteLine("---------- Limpando uma coleção List");
-        aula.RemoveRange(aula.Count-2, 2);  
-        Imprimir1(aula);
-        Finaliza();
+        Console.WriteLine("---------- Relação de itens:");
+        Suporte.Imprimir(aula);
+
+        if (aula.Count >= 2)
+        {
+            Console.WriteLine("---------- Limpando as duas últimas posições.");
+            aula.RemoveRange(aula.Count - 2, 2);
+            Suporte.Imprimir(aula);
+        }
+        else
+        {
+            Console.WriteLine("---------- Menos de 2 itens:");
+            Suporte.Imprimir(aula);
+        }
+
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -285,64 +301,8 @@ public class Listas
         Console.WriteLine("---------- Copiando uma coleção List para uma Array");
         string[] copiaArray = new string[aula.Count];
         aula.CopyTo(copiaArray, 0);
-        Imprimir1(copiaArray);
+        Suporte.Imprimir(copiaArray);
         Console.WriteLine();
-        Finaliza();
+        Suporte.Finaliza();
     }
-
-    #region SUPORTE
-    /// <summary>
-    /// Varrendo com "foreach"
-    /// </summary>
-    /// <param name="aulas">Uma Array Aulas</param>
-    private static void Imprimir1(List<string> aulas)
-    {
-        foreach (string aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Varrendo com o "for"
-    /// </summary>
-    /// <param name="aulas">Uma Array Aulas</param>
-    private static void Imprimir2(List<string> aulas)
-    {
-        for (int i = 0; i < aulas.Count; i++)
-            Console.WriteLine(aulas[i]);
-    }
-
-    /// <summary>
-    /// Varrendo com o "foreach" de dentro da coleção lista (Action) método anônimo;
-    /// </summary>
-    /// <param name="aulas">Uma Array Aulas</param>
-    private static void Imprimir3(List<string> aulas)
-    {
-        //aulas.ForEach(aula =>
-        //{
-        //    Console.WriteLine(aula);
-        //});
-
-        aulas.ForEach(Console.WriteLine);
-    }
-
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-
-    /// <summary>
-    /// Imprimindo ARRAY com foreach - Sobrecarga de método
-    /// </summary>
-    /// <param name="aulas">Array aulas</param>
-    private static void Imprimir1(string[] aulas)
-    {
-        foreach (var aula in aulas)
-            Console.WriteLine(aula);
-    }
-    #endregion
 }

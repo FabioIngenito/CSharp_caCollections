@@ -116,8 +116,8 @@
 
             Console.WriteLine();
 
-            Imprimir(dias);
-            Finaliza();
+            Suporte.Imprimir(dias);
+            Suporte.Finaliza();
             dias.Clear();
         }
 
@@ -139,8 +139,8 @@
             Console.WriteLine($"Quarta-feira: {quarta?.Value}");
             Console.WriteLine("---------------------------");
 
-            Imprimir(dias);
-            Finaliza();
+            Suporte.Imprimir(dias);
+            Suporte.Finaliza();
             dias.Clear();
         }
 
@@ -159,27 +159,9 @@
             dias.Remove(d7);
             Console.WriteLine();
 
-            Imprimir(dias);
-            Finaliza();
+            Suporte.Imprimir(dias);
+            Suporte.Finaliza();
             dias.Clear();
         }
-
-        #region SUPORTE
-        private static void Imprimir(LinkedList<string> dias)
-        {
-            foreach (string dia in dias)
-                Console.WriteLine(dia);
-        }
-
-        /// <summary>
-        /// Somente para finalizar.
-        /// </summary>
-        private static void Finaliza()
-        {
-            Console.WriteLine();
-            Console.WriteLine("Digite QQ Tecla.");
-            Console.ReadKey();
-        }
-        #endregion
     }
 }

@@ -84,15 +84,14 @@ public class Sets
                 Console.ReadKey();
             }
         }
-
     }
     private static void DeclarandoSet(ISet<string> alunos)
     {
         Console.WriteLine(alunos);
         Console.WriteLine(string.Join(",", alunos));
         Console.WriteLine("-----------------------------------");
-        Imprimir(alunos);
-        Finaliza();
+        Suporte.Imprimir(alunos);
+        Suporte.Finaliza();
     }
 
     private static void Adicionado(ISet<string> alunos)
@@ -103,8 +102,8 @@ public class Sets
 
         Console.WriteLine(string.Join(", ", alunos));
         Console.WriteLine("-----------------------------------");
-        Imprimir(alunos);
-        Finaliza();
+        Suporte.Imprimir(alunos);
+        Suporte.Finaliza();
     }
 
     private static void RemovendoAdicionado(ISet<string> alunos)
@@ -125,11 +124,12 @@ public class Sets
         Console.WriteLine(string.Join(", ", alunos));
         Console.WriteLine("-----------------------------------");
 
-        Imprimir(alunos);
-        Finaliza();
+        Suporte.Imprimir(alunos);
+        Suporte.Finaliza();
     }
 
-    private static void Ordenar(ISet<string> alunos) {
+    private static void Ordenar(ISet<string> alunos)
+    {
         // TABELA DE ESPALHAMENTO
         // Desempenho HashSet x List: escabilidade X memória
 
@@ -147,8 +147,8 @@ public class Sets
         Console.WriteLine(string.Join(", ", alunosEmLista));
         Console.WriteLine("-----------------------------------");
 
-        Imprimir(alunosEmLista);
-        Finaliza();
+        Suporte.Imprimir(alunosEmLista);
+        Suporte.Finaliza();
     }
 
     private static void Modelo()
@@ -168,8 +168,8 @@ public class Sets
         csharpcolecoes.Matricula(a3);
 
         Console.WriteLine("Imprimindo os alunos matriculados");
-        Imprimir(csharpcolecoes.Alunos);
-        Finaliza();
+        Suporte.Imprimir(csharpcolecoes.Alunos);
+        Suporte.Finaliza();
     }
 
     private static void Equals_HashCode()
@@ -198,8 +198,8 @@ public class Sets
         Console.WriteLine("------------------------");
         Console.WriteLine("a1 é equals a Tonini? " + (a1.Equals(tonini)));
 
-        Imprimir(csharpcolecoes.Alunos);
-        Finaliza();
+        Suporte.Imprimir(csharpcolecoes.Alunos);
+        Suporte.Finaliza();
     }
 
     private static void HashSet_List()
@@ -220,50 +220,8 @@ public class Sets
         Console.WriteLine("------------------------");
         alunos.Add("Fabio Gushiken");
 
-        Imprimir(alunos);
-        Finaliza();
+        Suporte.Imprimir(alunos);
+        Suporte.Finaliza();
     }
 
-    #region SUPORTE
-    /// <summary>
-    /// Varrendo com "foreach"
-    /// </summary>
-    /// <param name="aulas">SET Aulas</param>
-    private static void Imprimir(ISet<string> aulas)
-    {
-        foreach (string aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Sobrecarga para IList string
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(IList<string> aulas)
-    {
-        foreach (string aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Sobrecarga para IList Aluno
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(IList<Aluno> aulas)
-    {
-        foreach (Aluno aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-    #endregion
 }
-

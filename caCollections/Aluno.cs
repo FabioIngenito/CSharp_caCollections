@@ -2,8 +2,8 @@
 
 public class Aluno
 {
-	private string nome;
-	private int numeroMatricula;
+    private string nome;
+    private int numeroMatricula;
 
     public Aluno(string nome, int numeroMatricula)
     {
@@ -12,20 +12,20 @@ public class Aluno
     }
 
     public string Nome
-	{
-		get { return nome; }
-		set { nome = value; }
-	}
+    {
+        get { return nome; }
+        set { nome = value; }
+    }
 
-	public int NumeroMatricula
-	{
-		get { return numeroMatricula; }
-		set { numeroMatricula = value; }
-	}
+    public int NumeroMatricula
+    {
+        get { return numeroMatricula; }
+        set { numeroMatricula = value; }
+    }
 
     public override string ToString()
     {
-		return $"[Nome: {nome}, Matrícula: {numeroMatricula}]";
+        return $"[Nome: {nome}, Matrícula: {numeroMatricula}]";
     }
 
     /// <summary>
@@ -42,7 +42,10 @@ public class Aluno
     /// <returns></returns>
     public override bool Equals(object? obj)
     {
+        // MANDEI PROPOSITALMENTE SUPRIMIR ESTA MENSAGEM PARA MOSTRAR ESTA FORMA DE ESCREVER.
+#pragma warning disable IDE0019 // Usar a correspondência de padrão
         Aluno? outro = obj as Aluno;
+#pragma warning restore IDE0019 // Usar a correspondência de padrão
 
         if (outro == null) return false;
 

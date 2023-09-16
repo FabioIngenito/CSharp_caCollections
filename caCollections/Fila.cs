@@ -17,7 +17,6 @@ internal class Fila
             Console.WriteLine("=================================================");
             Console.WriteLine("===            Fila Collection C#             ===");
             Console.WriteLine("=== 1 - Introdução a Fila (Queue)             ===");
-            Console.WriteLine("=== 2 - Adicionar e pesquisar                 ===");
             Console.WriteLine("=== X - Sair do Sistema                       ===");
             Console.WriteLine("=================================================");
             Console.WriteLine();
@@ -33,9 +32,6 @@ internal class Fila
                 {
                     case '1':
                         Introducao();
-                        break;
-                    case '2':
-                        //AdicionarPesquisar(csharpcolecoes);
                         break;
                     case 'X':
                     case 'x':
@@ -85,7 +81,7 @@ internal class Fila
         Desenfileirar();
         Desenfileirar();
 
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     private static void Desenfileirar()
@@ -97,7 +93,7 @@ internal class Fila
 
             string veiculo = pedagio.Dequeue();
             Console.WriteLine($"Saiu da fila: {veiculo}");
-            Imprimir(pedagio);
+            Suporte.Imprimir(pedagio);
             Console.WriteLine("-------------------------");
         }
     }
@@ -107,29 +103,7 @@ internal class Fila
         Console.WriteLine($"Entrou na fila: {veiculo}");
         pedagio.Enqueue(veiculo);
         Console.WriteLine("FILA:");
-        Imprimir(pedagio);
+        Suporte.Imprimir(pedagio);
         Console.WriteLine("-------------------------");
     }
-
-    #region SUPORTE
-    /// <summary>
-    /// Sobrecarga para Queue<string>
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(Queue<string> pedagio)
-    {
-        foreach (var veiculo in pedagio)
-            Console.WriteLine(veiculo);
-    }
-
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-    #endregion
 }

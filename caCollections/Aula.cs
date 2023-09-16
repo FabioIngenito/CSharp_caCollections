@@ -25,6 +25,8 @@ public class Aula : IComparable<Aula>
 
     public int CompareTo(Aula? other)
     {
+        if (other == null) return -1;
+
         return this.titulo.CompareTo(other.titulo);
     }
 
@@ -48,9 +50,7 @@ public class Aula : IComparable<Aula>
     /// <returns></returns>
     public override bool Equals(object? obj)
     {
-        Aula? outra = obj as Aula;
-
-        if (outra == null) return false;
+        if (obj is not Aula outra) return false;
 
         return titulo.ToUpper().Equals(outra.titulo.ToUpper());
     }

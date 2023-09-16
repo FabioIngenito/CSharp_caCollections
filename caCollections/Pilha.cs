@@ -70,21 +70,8 @@ public class Pilha
         Console.WriteLine("------------------------");
 
         //Imprimir(csharpcolecoes.Alunos);
-        Finaliza();
+        Suporte.Finaliza();
     }
-
-
-    #region SUPORTE
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-    #endregion
 }
 
 internal class Navegador

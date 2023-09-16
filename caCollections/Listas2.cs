@@ -101,8 +101,8 @@ public class Listas2
         //ERRO: (objeto.nomeDaClasse)
         //Imprimir(aulas1);
         //CORRETO: Depois de personalizar a propriedade ".ToString()": 
-        Imprimir(aulas1);
-        Finaliza();
+        Suporte.Imprimir(aulas1);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -116,8 +116,8 @@ public class Listas2
         //aulas.Sort();
         //CORRETO: Depois de impllementar a interface iComparable.
         aulas.Sort();
-        Imprimir(aulas);
-        Finaliza();
+        Suporte.Imprimir(aulas);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -128,8 +128,8 @@ public class Listas2
     {
         Console.WriteLine("---------- Ordenando com Lambda.");
         aulas.Sort((este, outro) => este.Tempo.CompareTo(outro.Tempo));
-        Imprimir(aulas);
-        Finaliza();
+        Suporte.Imprimir(aulas);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -153,8 +153,8 @@ public class Listas2
 
         Console.WriteLine("---------- Somente leitura.");
 
-        Imprimir(csharpColecoes.Aulas);
-        Finaliza();
+        Suporte.Imprimir(csharpColecoes.Aulas);
+        Suporte.Finaliza();
     }
 
     private static void Ordenando()
@@ -166,7 +166,7 @@ public class Listas2
         csharpColecoes.Adiciona(new Aula("Criando um aula", 20));
         csharpColecoes.Adiciona(new Aula("Modelando com coleções", 19));
 
-        Imprimir(csharpColecoes.Aulas);
+        Suporte.Imprimir(csharpColecoes.Aulas);
 
         //Ordenar a lista
         //ERRO:
@@ -178,8 +178,8 @@ public class Listas2
         //ordenar a cópia
         aulasCopiadas.Sort();
 
-        Imprimir(aulasCopiadas);
-        Finaliza();
+        Suporte.Imprimir(aulasCopiadas);
+        Suporte.Finaliza();
     }
 
     private static void Totalizando()
@@ -188,74 +188,12 @@ public class Listas2
         csharpColecoes.Adiciona(new Aula("Trabalhando com Listas", 21));
         csharpColecoes.Adiciona(new Aula("Criando um aula", 20));
         csharpColecoes.Adiciona(new Aula("Modelando com coleções", 19));
-        Imprimir(csharpColecoes.Aulas);
+        Suporte.Imprimir(csharpColecoes.Aulas);
 
         //Totalizar o tempo do curso sem LINQ e com LINQ
         Console.WriteLine($"Tempo Total: {csharpColecoes.TempoTotal}");
         Console.WriteLine($"Tempo Total: {csharpColecoes.TempoTotal_LINQ}");
         Console.WriteLine(csharpColecoes);
-        Finaliza();
+        Suporte.Finaliza();
     }
-
-    #region SUPORTE
-    /// <summary>
-    /// Varrendo com "foreach"
-    /// </summary>
-    /// <param name="aulas">Uma Array Aulas</param>
-    private static void Imprimir(IList<Aula> aulas)
-    {
-        Console.Clear();
-
-        foreach (Aula aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-    #endregion
 }
-
-//public class Aula : IComparable<Aula>
-//{
-//    private string titulo;
-//    private int tempo;
-
-//    public Aula(string titulo, int tempo)
-//    {
-//        this.titulo = titulo;
-//        this.tempo = tempo;
-//    }
-
-//    public string Titulo 
-//    { 
-//        get => titulo; 
-//        set => titulo = value; 
-//    }
-    
-//    public int Tempo 
-//    { 
-//        get => tempo; 
-//        set => tempo = value; 
-//    }
-
-//    public int CompareTo(Aula? other)
-//    {
-//        return this.titulo.CompareTo(other.titulo);
-//    }
-
-//    /// <summary>
-//    /// Fazendo o Override (objeto.nomeDaClasse)
-//    /// </summary>
-//    /// <returns>Retorna Texto Personalizado</returns>
-//    public override string ToString()
-//    {
-//        return $"[título: {titulo}, tempo: {tempo} minutos]";
-//    }
-//}

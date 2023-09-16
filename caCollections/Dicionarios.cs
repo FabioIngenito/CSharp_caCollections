@@ -56,7 +56,6 @@ public class Dicionarios
                 Console.ReadKey();
             }
         }
-
     }
 
     private static void Introducao(Curso csharpcolecoes)
@@ -77,8 +76,8 @@ public class Dicionarios
         Console.WriteLine("---------------------------");
         Console.WriteLine();
 
-        Imprimir(csharpcolecoes.Alunos);
-        Finaliza();
+        Suporte.Imprimir(csharpcolecoes.Alunos);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -107,39 +106,7 @@ public class Dicionarios
         Console.WriteLine(csharpcolecoes.BuscaMatriculado(5617));
         Console.WriteLine("---------------------------");
 
-        Imprimir(csharpcolecoes.dicionarioAlunos);
-        Finaliza();
+        Suporte.Imprimir(csharpcolecoes.dicionarioAlunos);
+        Suporte.Finaliza();
     }
-
-    #region SUPORTE
-    /// <summary>
-    /// Sobrecarga para IList Aluno
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(IList<Aluno> aulas)
-    {
-        foreach (Aluno aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Sobrecarga para IDictionary int, Aluno
-    /// </summary>
-    /// <param name="aulas"></param>
-    private static void Imprimir(IDictionary<int, Aluno> aulas)
-    {
-        foreach (KeyValuePair<int, Aluno> aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-    #endregion
 }

@@ -25,7 +25,7 @@ public class Arrays
         aulas2[0] = aulaIntro;
         aulas2[1] = aulaModelando;
         aulas2[2] = aulaSets;
-        
+
         while (opcao != 'X' && opcao != 'x')
         {
             Console.Clear();
@@ -120,14 +120,14 @@ public class Arrays
         };
 
         Console.WriteLine("---------- Populando e imprimindo Aula 1:");
-        Imprimir1(aula1);
+        Suporte.Imprimir(aula1);
         Console.WriteLine();
         Console.WriteLine("---------- Populando e imprimindo Aula 2:");
-        Imprimir2(aula2);
+        Suporte.Imprimir2(aula2);
         Console.WriteLine();
         Console.WriteLine("---------- Populando e imprimindo Aula 3:");
-        Imprimir1(aulas3);
-        Finaliza();
+        Suporte.Imprimir(aulas3);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -141,8 +141,12 @@ public class Arrays
         Console.WriteLine($"Primeiro elemento: Aula1[0]: {aula1[0]} - Aula2[0]: {aula2[0]}");
         Console.WriteLine();
         Console.WriteLine("---------- Último elemento das duas coleções Array criadas:");
+
+        // DESABILITER PROPOSITALMENTE ESTA MENSAGEM PARA MOSTRAR AS DUAS FORMAS DE FAZER 1ª) [^1] e 2ª [aula2.Length - 1]:
+#pragma warning disable IDE0056 // Usar operador de índice
         Console.WriteLine($"Último elemento: Aula1[{aula1.Length - 1}]: {aula1[^1]} - Aula2[{aula2.Length - 1}]: {aula2[aula2.Length - 1]}");
-        Finaliza();
+#pragma warning restore IDE0056 // Usar operador de índice
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -156,7 +160,7 @@ public class Arrays
         Console.WriteLine($"Primeiro elemento: Aula1[0]: {aula1[0]}");
         aula1[0] = aulaIntro;
         Console.WriteLine($"Primeiro elemento: Aula1[0]: {aula1[0]}");
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -169,7 +173,7 @@ public class Arrays
         Console.WriteLine("---------- Operações - Procurar o texto passado.");
         Console.WriteLine($"A aula 'modelando' está no índice: {Array.IndexOf(aula, textoPassado)} ");
         Console.WriteLine($"A aula 'modelando' está no índice: {Array.LastIndexOf(aula, textoPassado)} ");
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -179,12 +183,12 @@ public class Arrays
     private static void InverterOrdem(string[] aula)
     {
         Console.WriteLine("---------- Ordem original:");
-        Imprimir1(aula);
+        Suporte.Imprimir(aula);
         Console.WriteLine();
         Console.WriteLine("---------- Inverter a ordem:");
         Array.Reverse(aula);
-        Imprimir2(aula);
-        Finaliza();
+        Suporte.Imprimir2(aula);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -194,19 +198,19 @@ public class Arrays
     private static void RedimensionandoArray(string[] aula)
     {
         Console.WriteLine("---------- Array Original");
-        Imprimir2(aula);
+        Suporte.Imprimir2(aula);
         Console.WriteLine();
         Console.WriteLine("---------- Redimensionando a Array Diminuindo");
         Array.Resize(ref aula, 2);
-        Imprimir1(aula);
+        Suporte.Imprimir(aula);
         Console.WriteLine();
         Console.WriteLine("---------- Redimensionando a Array Aumentando");
         Array.Resize(ref aula, 3);
-        Imprimir1(aula);
+        Suporte.Imprimir(aula);
         Console.WriteLine("---------- Atribuindo uma string no lugar do valor NULL");
         aula[^1] = "Conclusão";
-        Imprimir1(aula);
-        Finaliza();
+        Suporte.Imprimir(aula);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -217,8 +221,8 @@ public class Arrays
     {
         Console.WriteLine("---------- Ordenando ou 'Sort' uma coleção Array. Não é idempotente como o Reverse().");
         Array.Sort(aula);
-        Imprimir2(aula);
-        Finaliza();
+        Suporte.Imprimir2(aula);
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -230,9 +234,9 @@ public class Arrays
         Console.WriteLine("---------- Copiando uma coleção Array");
         string[] copia = new string[2];
         Array.Copy(aula, 1, copia, 0, 2);
-        Imprimir2(copia);
+        Suporte.Imprimir2(copia);
         Console.WriteLine();
-        Finaliza();
+        Suporte.Finaliza();
     }
 
     /// <summary>
@@ -242,52 +246,23 @@ public class Arrays
     private static void ClonandoArray(string[] aula)
     {
         Console.WriteLine("---------- Clonando uma coleção Array");
-        string[]? clone = aula.Clone() as string[];
-        Imprimir2(clone);
-        Finaliza();
+
+        if (aula.Clone() is string[] clone)
+            Suporte.Imprimir2(clone);
+
+        Suporte.Finaliza();
     }
 
     /// <summary>
     /// Limpando Array
     /// </summary>
     /// <param name="aula">Array aula</param>
-    private static void LimpandoArray(string[] aula) {
+    private static void LimpandoArray(string[] aula)
+    {
 
         Console.WriteLine("---------- Limpando uma coleção Array");
         Array.Clear(aula, 1, 2);
-        Imprimir1(aula);
-        Finaliza();
+        Suporte.Imprimir(aula);
+        Suporte.Finaliza();
     }
-
-    #region SUPORTE
-    /// <summary>
-    /// Varrendo com "foreach"
-    /// </summary>
-    /// <param name="aulas">Uma Array Aulas</param>
-    private static void Imprimir1(string[] aulas)
-    {
-        foreach (var aula in aulas)
-            Console.WriteLine(aula);
-    }
-
-    /// <summary>
-    /// Varrendo com o "for"
-    /// </summary>
-    /// <param name="aulas">Uma Array Aulas</param>
-    private static void Imprimir2(string[] aulas)
-    {
-        for (int i = 0; i < aulas.Length; i++)
-            Console.WriteLine(aulas[i]);
-    }
-
-    /// <summary>
-    /// Somente para finalizar.
-    /// </summary>
-    private static void Finaliza()
-    {
-        Console.WriteLine();
-        Console.WriteLine("Digite QQ Tecla.");
-        Console.ReadKey();
-    }
-    #endregion
 }
