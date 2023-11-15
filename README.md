@@ -5,7 +5,7 @@
 | :sparkles: Nome       | **CSharp_caCollections**                |
 | :label: Tecnologias   | C# Collections                          |
 
-![Collections](https://github.com/FabioIngenito/CSharp_caCollections/assets/24603753/27ca9cdd-8dc6-43ac-a76f-05f260ba053b#vitrinedev)
+![image](https://github.com/FabioIngenito/CSharp_caCollections/assets/24603753/27ca9cdd-8dc6-43ac-a76f-05f260ba053b#vitrinedev)
 
 <h2 align="left">Detalhes do experimento</h2>
 
